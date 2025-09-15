@@ -125,7 +125,7 @@ git switch -c gimin0226-week-01
 ### 3. 산출물 작성 및 커밋 후 원격 푸시
 ```bash
 git add .
-git commit -m "gimin0226: Week01 section01 추가"
+git commit -m "docs: Week01 section01 수정"
 git push -u origin gimin-week-01
 ```
 - 커밋 메시지 prefix 가이드
