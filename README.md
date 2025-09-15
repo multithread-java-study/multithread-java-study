@@ -50,7 +50,7 @@
 ├─ multithread-java-study
 │     │
 │     │
-│     ├─ cs-questions // 브랜치 나눠서 PR 요청하기, 브랜치 명은 '이름-주차' ex) 'gimin-01'
+│     ├─ cs-questions // 공통 작업 파일들
 │     │     ├─  Week01.md // 1주차
 │     │     ├─  Week02.md // 2주차
 │     │     ├─  Week03.md // 3주차
@@ -59,25 +59,25 @@
 │     │
 │     │
 │     ├─ gimin (dir) // 본인의 핸들명
-│     │     ├─  Week01 (dir) // code는 브랜치 나눠서 PR 진행, 나머지 파일은 main 브랜치에서 커밋
-│     │     │    ├─ section1.md // 섹션을 듣고 정리한 내용. 확장자는 `.md`, 제목은 'section숫자'
-│     │     │    ├─ section2.md
-│     │     │    ├─ section3.md
+│     │     ├─  Week01 (dir) 
+│     │     │    ├─ section01.md // 섹션을 듣고 정리한 내용. 확장자는 `.md`, 제목은 'section숫자'
+│     │     │    ├─ section02.md
+│     │     │    ├─ section03.md
 │     │     │    ├─ 발표자료.md // 추가적으로 공부하여 발표할 내용. 확장자는 `.md`, 제목은 '발표자료'
 │     │     │    └─ code (dir)  
-│     │     │        ├─ problem1.java // 과제로 나온 문제 코드. 확장자는 `.java`, 제목은 'problem숫자'
-│     │     │        ├─ problem2.java 
-│     │     │        └─ problem3.java 
+│     │     │        ├─ problem01.java // 과제로 나온 문제 코드. 확장자는 `.java`, 제목은 'problem숫자'
+│     │     │        ├─ problem02.java 
+│     │     │        └─ problem03.java 
 │     │     │
 │     │     ├─  Week02 (dir) 
-│     │     │    ├─ section4.md 
-│     │     │    ├─ section5.md
-│     │     │    ├─ section6.md
+│     │     │    ├─ section04.md 
+│     │     │    ├─ section05.md
+│     │     │    ├─ section06.md
 │     │     │    ├─ 발표자료.md 
 │     │     │    └─ code (dir)
-│     │     │        ├─ problem1.java 
-│     │     │        ├─ problem2.java 
-│     │     │        └─ problem3.java
+│     │     │        ├─ problem01.java 
+│     │     │        ├─ problem02.java 
+│     │     │        └─ problem03.java
 │     │     │
 │     │     │
 │     │     └─ ... 이하 동일
@@ -87,3 +87,89 @@
 │
 │
 ```
+
+## 브랜치 전략 가이드
+
+### 원칙
+- 참가자는 해당 주차 산출물(문서+코드)을 **개인 주차 브랜치**에서 작업한다.  
+  예: `gimin-week-01`
+- 모든 PR의 대상(base)은 **develop** 이다. `main`에는 직접 올리지 않는다.
+- 주차 마감 시 스터디장(김기민)이 `develop`의 누적 변경을 `main`에 한 번에 반영한다.
+- 
+- main: 마감본 확정본, 주차가 끝나야만 갱신됨
+- develop: 이번 주 모두가 함께 쌓아가는 통합본, 개인 PR들이 계속 머지되는 곳
+---
+
+### 브랜치 네이밍 규칙
+- `<이름>-week-<NN>`
+- 예: `gimin-week-01`, `seokjun-week-03`
+
+---
+
+### 참가자 작업 흐름 (로컬 → PR)
+
+### 1. 기준 브랜치 최신화
+```bash
+git switch develop
+git pull origin develop --ff-only
+```
+
+- 원격 저장소(origin)의 develop 브랜치를 가져와서 , 내 현재 브랜치를 fast-forward 할 수 있을 때만 반영해라
+- fast-forward merge: 로컬 브랜치에 새 커밋이 없고, 원격이 더 앞서 있을 때 단순히 **포인터만 앞으로 이동**하는 병합 방식
+- 즉, 내 로컬 브랜치가 원격보다 뒤처졌을 때만, 안전하게 최신화하는 것
+
+### 2. 주차 브랜치 생성
+```bash
+git switch -c gimin-week-01
+```
+
+### 3. 산출물 작성 및 커밋 후 원격 푸시
+```bash
+git add .
+git commit -m "gimin: Week01 section01 추가"
+git push -u origin gimin-week-01
+```
+- docs: → 개인 문서/섹션
+- code: → 과제 코드
+- cs-questions: → 공통 문제</br></br>
+**커밋 메시지 예시**</br>
+- `docs: Week01 section01 수정`
+- `code: Week01 problem01 추가`
+- `cs-questions: Week01.md 수정`
+
+### 4. Github에서 PR 생성
+- base: `develop`
+- compare: `gimin-week-01`</br></br>
+**PR 제목 예시**</br>
+- `[김기민] Week01/section01.md 제출`
+- `[김기민] Week02/code/problem01.java 제출`
+- `[김기민] cs-questions/Week01.md 수정`
+
+### 5. 머지 후 로컬 정리
+- PR 생성 후 스터디장이 PR을 승인하고 merge 버튼을 누르면
+- Github이 자동으로 브랜치 커밋들을 develop 브랜치에 합쳐줌
+```bash
+git switch develop
+git pull origin develop --ff-only
+git branch -d gimin-week-01
+```
+- PR이 병합됐으니, 로컬도 상태를 최신화하고, 필요 없어진 작업 브랜치 정리
+- branch 삭제 작업은 모든 파일을 develop 브랜치에 올린 후 수행할 것
+ 
+---
+## 스터디장 할 것 (다른 스터디원들은 x)
+
+### PR 리뷰·머지 기준
+- base가 `develop`인지 확인
+- 제목,본문 컨벤션 준수 여부 확인
+
+### 주차 마감 직전 점검
+- `develop`에 해당 주차 PR들이 모두 머지됐는지 확인
+- 필요시 누락자 멘션
+
+### 주차 마감 반영( develop -> main )
+- Github에서 Create pull request 선택
+- base: `main`, compare: `develop`
+- PR 제목: `1주차 마감 PR`
+- 본문: 주요 변경 요약 + 참여자 목록 정리
+
