@@ -42,3 +42,48 @@
 ### 5주차
 - 섹션 13. 스레드 풀과 Executor 프레임워크 1
 - 섹션 14. 스레드 풀과 Executor 프레임워크 2
+
+## Directory Structure
+---
+```
+│
+├─ multithread-java-study
+│     │
+│     │
+│     ├─ cs-questions // 브랜치 나눠서 PR 요청하기, 브랜치 명은 '이름-주차' ex) 'gimin-01'
+│     │     ├─  Week01.md // 1주차
+│     │     ├─  Week02.md // 2주차
+│     │     ├─  Week03.md // 3주차
+│     │     ├─  Week04.md // 4주차
+│     │     └─  Week05.md // 5주차  
+│     │
+│     │
+│     ├─ gimin (dir) // 본인의 핸들명
+│     │     ├─  Week01 (dir) // code는 브랜치 나눠서 PR 진행, 나머지 파일은 main 브랜치에서 커밋
+│     │     │    ├─ section1.md // 섹션을 듣고 정리한 내용. 확장자는 `.md`, 제목은 'section숫자'
+│     │     │    ├─ section2.md
+│     │     │    ├─ section3.md
+│     │     │    ├─ 발표자료.md // 추가적으로 공부하여 발표할 내용. 확장자는 `.md`, 제목은 '발표자료'
+│     │     │    └─ code (dir)  
+│     │     │        ├─ problem1.java // 과제로 나온 문제 코드. 확장자는 `.java`, 제목은 'problem숫자'
+│     │     │        ├─ problem2.java 
+│     │     │        └─ problem3.java 
+│     │     │
+│     │     ├─  Week02 (dir) 
+│     │     │    ├─ section4.md 
+│     │     │    ├─ section5.md
+│     │     │    ├─ section6.md
+│     │     │    ├─ 발표자료.md 
+│     │     │    └─ code (dir)
+│     │     │        ├─ problem1.java 
+│     │     │        ├─ problem2.java 
+│     │     │        └─ problem3.java
+│     │     │
+│     │     │
+│     │     └─ ... 이하 동일
+│     │   
+│     │   
+│     ├─ seokjun (dir) // 본인의 핸들명, .. 이하 동일
+│
+│
+```
