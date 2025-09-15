@@ -58,23 +58,23 @@
 │     │     └─  Week05.md // 5주차  
 │     │
 │     │
-│     ├─ gimin (dir) // 본인의 핸들명
-│     │     ├─  Week01 (dir) 
-│     │     │    ├─ section01.md // 섹션을 듣고 정리한 내용. 확장자는 `.md`, 제목은 'section숫자'
+│     ├─ gimin0226/ // 본인의 핸들명(Github ID)
+│     │     ├─  Week01/
+│     │     │    ├─ section01.md // 섹션 정리(파일명: section숫자)
 │     │     │    ├─ section02.md
 │     │     │    ├─ section03.md
-│     │     │    ├─ 발표자료.md // 추가적으로 공부하여 발표할 내용. 확장자는 `.md`, 제목은 '발표자료'
-│     │     │    └─ code (dir)  
-│     │     │        ├─ problem01.java // 과제로 나온 문제 코드. 확장자는 `.java`, 제목은 'problem숫자'
+│     │     │    ├─ presentation.md # 발표 자료( 영문 파일명 talk.md로 통일)
+│     │     │    └─ code/ 
+│     │     │        ├─ problem01.java # 과제 코드(파일명: problem숫자)
 │     │     │        ├─ problem02.java 
 │     │     │        └─ problem03.java 
 │     │     │
-│     │     ├─  Week02 (dir) 
+│     │     ├─  Week02/
 │     │     │    ├─ section04.md 
 │     │     │    ├─ section05.md
 │     │     │    ├─ section06.md
 │     │     │    ├─ 발표자료.md 
-│     │     │    └─ code (dir)
+│     │     │    └─ code/
 │     │     │        ├─ problem01.java 
 │     │     │        ├─ problem02.java 
 │     │     │        └─ problem03.java
@@ -83,7 +83,7 @@
 │     │     └─ ... 이하 동일
 │     │   
 │     │   
-│     ├─ seokjun (dir) // 본인의 핸들명, .. 이하 동일
+│     ├─ seokjun/                 // 다른 구성원도 동일 구조
 │
 │
 ```
@@ -92,17 +92,16 @@
 
 ### 원칙
 - 참가자는 해당 주차 산출물(문서+코드)을 **개인 주차 브랜치**에서 작업한다.  
-  예: `gimin-week-01`
+  예: `gimin0226-week-01`
 - 모든 PR의 대상(base)은 **develop** 이다. `main`에는 직접 올리지 않는다.
 - 주차 마감 시 스터디장(김기민)이 `develop`의 누적 변경을 `main`에 한 번에 반영한다.
-- 
-- main: 마감본 확정본, 주차가 끝나야만 갱신됨
-- develop: 이번 주 모두가 함께 쌓아가는 통합본, 개인 PR들이 계속 머지되는 곳
+  - main: 마감본 확정본, 주차가 끝나야만 갱신됨
+  - develop: 이번 주 모두가 함께 쌓아가는 통합본, 개인 PR들이 계속 머지되는 곳
 ---
 
 ### 브랜치 네이밍 규칙
-- `<이름>-week-<NN>`
-- 예: `gimin-week-01`, `seokjun-week-03`
+- `<github핸들명>-week-<NN>`
+- 예: `gimin0226-week-01`, `seokjun01-week-03`
 
 ---
 
@@ -114,40 +113,40 @@ git switch develop
 git pull origin develop --ff-only
 ```
 
-- 원격 저장소(origin)의 develop 브랜치를 가져와서 , 내 현재 브랜치를 fast-forward 할 수 있을 때만 반영해라
+- 원격 저장소(origin)의 `develop` 브랜치를 가져와 fast-forward가 가능할 때만 반영한다.
 - fast-forward merge: 로컬 브랜치에 새 커밋이 없고, 원격이 더 앞서 있을 때 단순히 **포인터만 앞으로 이동**하는 병합 방식
 - 즉, 내 로컬 브랜치가 원격보다 뒤처졌을 때만, 안전하게 최신화하는 것
 
 ### 2. 주차 브랜치 생성
 ```bash
-git switch -c gimin-week-01
+git switch -c gimin0226-week-01
 ```
 
 ### 3. 산출물 작성 및 커밋 후 원격 푸시
 ```bash
 git add .
-git commit -m "gimin: Week01 section01 추가"
+git commit -m "gimin0226: Week01 section01 추가"
 git push -u origin gimin-week-01
 ```
-- docs: → 개인 문서/섹션
-- code: → 과제 코드
-- cs-questions: → 공통 문제</br></br>
-**커밋 메시지 예시**</br>
-- `docs: Week01 section01 수정`
-- `code: Week01 problem01 추가`
-- `cs-questions: Week01.md 수정`
+- 커밋 메시지 prefix 가이드
+  - `docs`: → 개인 문서/섹션
+  - `code`: → 과제 코드
+  - `cs-questions`: → 공통 문제
+- 커밋 메시지 예시
+  - `docs: Week01 section01 수정`
+  - `code: Week01 problem01 추가`
+  - `cs-questions: Week01.md 수정`
 
 ### 4. Github에서 PR 생성
 - base: `develop`
-- compare: `gimin-week-01`</br></br>
-**PR 제목 예시**</br>
-- `[김기민] Week01/section01.md 제출`
-- `[김기민] Week02/code/problem01.java 제출`
-- `[김기민] cs-questions/Week01.md 수정`
+- compare: `gimin-week-01`
+- PR 제목 예시
+  - `[김기민] Week01/section01.md 제출`
+  - `[김기민] Week02/code/problem01.java 제출`
+  - `[김기민] cs-questions/Week01.md 수정`
 
 ### 5. 머지 후 로컬 정리
-- PR 생성 후 스터디장이 PR을 승인하고 merge 버튼을 누르면
-- Github이 자동으로 브랜치 커밋들을 develop 브랜치에 합쳐줌
+- 스터디장이 PR을 승인하고 Merge하면, Github가 자동으로 해당 커밋을 `develop`에 합친다.
 ```bash
 git switch develop
 git pull origin develop --ff-only
