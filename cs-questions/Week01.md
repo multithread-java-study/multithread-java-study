@@ -1,1 +1,1 @@
-.
+http / https 의 차이
