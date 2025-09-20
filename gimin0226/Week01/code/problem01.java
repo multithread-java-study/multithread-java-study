@@ -2,7 +2,7 @@ package thread.start.test;
 
 import static util.MyLogger.log;
 
-public class StartTest1Main {
+public class problem01 {
 	public static void main(String[] args) {
 		CounterThread thread = new CounterThread();
 		thread.start();
