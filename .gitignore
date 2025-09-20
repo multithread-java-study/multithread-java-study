@@ -17,5 +17,12 @@ Thumbs.db
 *.class
 *.swp
 
+.settings/
+
 .classpath
+
 .project
+
+bin/
+
+
