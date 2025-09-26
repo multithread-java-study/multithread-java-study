@@ -131,6 +131,7 @@ public synchronized void withdraw(long amount) { ... }
 public synchronized long getBalance() { ... }
 ```
 
+---
 ## 7. synchronized 적용 후 예상 결과
 
 | 스레드 실행 순서        | 입금 | 출금1 | 출금2 | 최종 잔액 |
@@ -141,6 +142,7 @@ public synchronized long getBalance() { ... }
 
 > synchronized 적용 → 임계 영역에 한 번에 하나의 스레드만 접근 가능하므로, 어떤 순서로 실행되든 잔액이 음수가 되는 상황을 방지
 
+---
 ## 8. synchronized 와 join 차이점
 | 구분                  | synchronized                       | join                                         |
 |-----------------------|-----------------------------------------|---------------------------------------------|
