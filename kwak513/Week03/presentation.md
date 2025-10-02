@@ -14,7 +14,7 @@
    - 해제(unlock)
 
 4. **Java 구현**: ReentrantLock
-```java
+```
 private final Lock lock = new ReentrantLock();
 lock.lock();
 
