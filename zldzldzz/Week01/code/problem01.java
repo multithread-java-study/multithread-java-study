@@ -1,13 +1,11 @@
-package thread.start.test;
 
-import static util.MyLogger.log;
 
 public class problem01 {
 	public static void main(String[] args) {
-		CounterThread thread = new CounterThread();
+		CountrtThread thread = new CountrtThread();
 		thread.start();
 	}
-	static class CounterThread extends Thread {
+	static class CountrtThread extends Thread {
 		@Override
 		public void run() {
 			for (int i = 1; i <= 5; i++) {
@@ -20,3 +18,4 @@ public class problem01 {
 			}
 		}
 	}
+}

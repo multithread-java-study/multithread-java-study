@@ -1,13 +1,16 @@
 package thread.start.test;
 
-import static util.MyLogger.log;
+import static util.MyLogger.*;
 
-public class problem01 {
+public class StartTest2Main {
+
 	public static void main(String[] args) {
-		CounterThread thread = new CounterThread();
+
+		Thread thread = new Thread(new CounterRunnable(), "counter");
 		thread.start();
 	}
-	static class CounterThread extends Thread {
+
+	static class CounterRunnable implements Runnable {
 		@Override
 		public void run() {
 			for (int i = 1; i <= 5; i++) {
@@ -18,5 +21,7 @@ public class problem01 {
 					throw new RuntimeException(e);
 				}
 			}
+
 		}
 	}
+}
