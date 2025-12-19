@@ -1,4 +1,4 @@
-# TAVE 전반기 스터디 1위!!!!
+# 🏆🥇 TAVE 전반기 스터디 1위!!!!
 <img width="2331" height="1565" alt="image" src="https://github.com/user-attachments/assets/d000f2ce-7c11-4782-af96-98f71e1fe1e4" />
 
 # 자바 심화 스터디
